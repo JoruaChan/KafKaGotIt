@@ -37,11 +37,11 @@ public class JCProducer {
     public static final void newProduceThread(Producer producer, String topicName) {
         new Thread(() -> {
             // 发一点停一会，再发一会
-            int recycleCount = 5;
+            int recycleCount = 100;
 
             String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM-dd HH:mm"));
             while (recycleCount-- > 0) {
-                int count = (int) (Math.random() * 1000);
+                int count = (int) (Math.random() * 10000);
 
                 CountDownLatch countDownLatch = new CountDownLatch(count);
                 for (int j = 0; j < count; j++) {
